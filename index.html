@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页 — 麦糟高值化课题组</title>
+<meta name="description" content="麦糟高值化课题组：啤酒麦糟饼干的工艺优化及其品质特性与体外功能评价。基于响应面（Box-Behnken）与 BP 神经网络协同优化的本科生科研课题。">
+<meta name="keywords" content="啤酒麦糟,BSG,麦糟饼干,响应面优化,BP神经网络,膳食纤维,体外功能评价,课题组">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page" id="top">
+
+  <!-- ==================== 页头 ==================== -->
+  <div class="hd">
+    <div class="logo">BSG</div>
+    <div class="hd-t">
+      <h1>麦糟高值化课题组</h1>
+      <p>Brewers' Spent Grain Valorization Research Group</p>
+    </div>
+    <div class="hd-r">
+      <form class="search" id="searchForm">
+        <input type="text" id="q" placeholder="站内检索…" aria-label="站内检索">
+        <button type="submit">检 索</button>
+      </form>
+      <p class="slogan">课题方向：谷物资源高值化利用 · 功能食品 · 数据建模</p>
+      <div class="srch-pop" id="srchPop"></div>
+    </div>
+  </div>
+
+  <!-- ==================== 导航 ==================== -->
+  <div class="nav">
+    <ul id="navList">
+      <li class="on"><a href="index.html">首页</a></li>
+      <li><a href="about.html">课题概况</a></li>
+      <li><a href="research.html">研究内容</a></li>
+      <li><a href="route.html">技术路线</a></li>
+      <li><a href="process.html">关键工艺</a></li>
+      <li><a href="progress.html">研究进展</a></li>
+      <li><a href="team.html">团队成员</a></li>
+      <li><a href="results.html">预期成果</a></li>
+      <li><a href="refs.html">参考资料</a></li>
+    </ul>
+  </div>
+
+  <!-- ==================== 面包屑 ==================== -->
+  <div class="crumb">
+    您现在的位置：首页
+  </div>
+
+  <div class="hero">
+    <div class="hero-l">
+      <div class="figure">
+        <img id="bigPic" src="assets/hero-bsg.jpg" alt="啤酒酿造副产物麦糟原料特写" width="640" height="296" decoding="async">
+        <span class="cap" id="bigCap">啤酒酿造副产物麦糟 —— 每年约 700 万吨的“被低估原料”</span>
+      </div>
+      <div class="thumbs" id="thumbs">
+        <button type="button" class="on" data-src="assets/hero-bsg.jpg"
+          data-cap="啤酒酿造副产物麦糟 —— 每年约 700 万吨的“被低估原料”"
+          data-alt="啤酒酿造副产物麦糟原料特写">
+          <img src="assets/hero-bsg.jpg" alt="麦糟原料" width="150" height="62" decoding="async"></button>
+        <button type="button" data-src="assets/bsg-flour.jpg"
+          data-cap="干燥、粉碎、过 80 目筛后的食品级麦糟粉 —— 课题组核心中间产物"
+          data-alt="干燥粉碎后的麦糟粉特写">
+          <img src="assets/bsg-flour.jpg" alt="麦糟粉" width="150" height="62" decoding="async"></button>
+        <button type="button" data-src="assets/bsg-cookie.jpg"
+          data-cap="目标产品：以麦糟粉替代部分面粉的粗粮饼干 —— 高纤维、高蛋白、低糖的功能性烘焙食品"
+          data-alt="添加麦糟的粗粮饼干成品">
+          <img src="assets/bsg-cookie.jpg" alt="麦糟饼干" width="150" height="62" decoding="async"></button>
+        <button type="button" data-src="assets/drying-oven.jpg"
+          data-cap="电热鼓风干燥箱 · 65℃ 强制对流干燥，料层 ≤1.5 cm，托盘间留风道"
+          data-alt="电热鼓风干燥箱中摊铺的麦糟颗粒">
+          <img src="assets/drying-oven.jpg" alt="鼓风干燥箱" width="150" height="62" decoding="async"></button>
+      </div>
+    </div>
+
+
+    <div class="notice">
+      <div class="nt-bar">
+        <h2>通知公告</h2>
+        <a class="more" href="progress.html">更多&gt;&gt;</a>
+      </div>
+      <div class="ticks">
+        <b>滚动播报</b>
+        <div class="vp"><p>《麦糟干燥最佳方案（可执行版）》已定稿，干燥主工艺确定为 65℃ 两段式脱水；9.6–9.7 完成麦汁制备、麦糟干燥流程与湿糟速冻工艺可行性实验。下一阶段进入单因素实验与 Box-Behnken 响应面优化。</p></div>
+      </div>
+      <div class="body">
+        <ul class="list">
+          <li><span class="tag">动态</span><a href="progress.html">实验方案定稿，首轮实验已在 9 月完成</a><span class="d">09-07</span></li>
+          <li><span class="tag">工艺</span><a href="process.html">麦糟干燥最佳方案确定：65℃ 两段式脱水</a><span class="d">09-03</span></li>
+          <li><span class="tag">方案</span><a href="progress.html">《单因素实验详细方案》完成（17 水平组）</a><span class="d">09-11</span></li>
+          <li><span class="tag">立项</span><a href="progress.html">项目立项，策划书定稿</a><span class="d">08-20</span></li>
+          <li><span class="tag t2">计划</span><a href="route.html">响应面优化实验（Box-Behnken 17 组）</a><span class="d">M5–M6</span></li>
+          <li><span class="tag t2">计划</span><a href="route.html">BP 神经网络建模与全局寻优</a><span class="d">M7–M8</span></li>
+          <li><span class="tag t2">计划</span><a href="results.html">功能评价与结题答辩</a><span class="d">M11–M12</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 主体 ==================== -->
+  <div class="body-wrap">
+    <!-- -------- 左：正文 -------- -->
+    <div class="col-main">
+
+      <!-- 课题概况（摘要） -->
+      <div class="sec">
+        <div class="hd2">
+          <h2>课题概况 <em>Project Overview</em></h2>
+          <a class="more" href="about.html">更多&gt;&gt;</a>
+        </div>
+        <div class="bd">
+          <p class="lead">课题名称：啤酒麦糟饼干的工艺优化及其品质特性与体外功能评价</p>
+          <p>啤酒糟（Brewers' Spent Grain, BSG）是啤酒酿造经糖化、过滤后剩余的<strong>麦芽皮壳与未溶解胚乳残渣</strong>，占全部酿造副产物总重的 <span class="hl">85%</span> 左右。按 2024 年我国规模以上啤酒企业产量 3521.3 万千升测算，每年产生的湿麦糟在 <span class="hl">700 万吨</span>上下——其中绝大多数仍以每吨数百元的低价流向饲料厂，甚至就地废弃。</p>
+          <p>麦糟干基蛋白质约 20%–30%、总膳食纤维 45%–70%，并富含以阿魏酸为代表的结合态酚酸（典型值约 336 mg/100 g 干物质）。本课题系统建立麦糟饼干<strong>“配方—品质—功能”</strong>的量化关系，为高纤维烘焙制品的配方设计提供可复用的方法学范式。</p>
+          <div class="entry"><a href="about.html">查看完整的课题概况（研究背景 · 法律依据 · 成分基线）&gt;&gt;</a></div>
+        </div>
+      </div>
+
+      <!-- 研究内容（摘要） -->
+      <div class="sec">
+        <div class="hd2">
+          <h2>研究内容 <em>Research Contents</em></h2>
+          <a class="more" href="research.html">更多&gt;&gt;</a>
+        </div>
+        <div class="bd">
+          <p class="lead">从原料稳定化到体外功能评价，六个环节层层递进，全程以国标方法测定、以双模型交叉验证。</p>
+          <div class="tb-wrap">
+            <table class="tb">
+              <thead>
+                <tr><th class="no">序号</th><th style="width:190px">研究模块</th><th>关键内容</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="no">01</td><td>麦糟粉预处理与基本成分分析</td><td>热风干燥 · 粉碎过 80 目 · 水分／蛋白／脂肪／灰分／膳食纤维（国标法）</td></tr>
+                <tr><td class="no">02</td><td>单因素实验</td><td>麦糟添加量 0%–30% · 感官评分／硬度／色差／水分</td></tr>
+                <tr><td class="no">03</td><td>Box-Behnken 响应面优化</td><td>BBD 17 组试验 · 二次回归建模 · 求解最优配方</td></tr>
+                <tr><td class="no">04</td><td>BP 神经网络建模与全局寻优</td><td>3-12-1 网络 · 加密网格寻优 · 与响应面交叉验证</td></tr>
+                <tr><td class="no">05</td><td>品质特性评价</td><td>TPA 质构 · L*a*b* 色差 · 理化营养指标 · 菌落总数 · 感官评定</td></tr>
+                <tr><td class="no">06</td><td>体外功能评价</td><td>总酚（Folin-Ciocalteu）· DPPH／ABTS 清除率 · eGI 估算</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entry"><a href="research.html">查看六个研究模块全文与检测指标体系&gt;&gt;</a></div>
+        </div>
+      </div>
+
+      <!-- 技术路线（摘要） -->
+      <div class="sec">
+        <div class="hd2">
+          <h2>技术路线 <em>Technical Route</em></h2>
+          <a class="more" href="route.html">更多&gt;&gt;</a>
+        </div>
+        <div class="bd">
+          <p class="lead">七步主线：从湿糟到功能评价。响应面与 BP 双模型交叉验证，锁定最优配方。</p>
+          <div class="flow">
+            <div class="fs"><em>1</em><b>预处理</b><span>干燥 · 粉碎 · 过 80 目 · 成分测定</span></div>
+            <div class="fs"><em>2</em><b>单因素实验</b><span>麦糟／油脂／糖，确定适宜范围</span></div>
+            <div class="fs"><em>3</em><b>响应面优化</b><span>BBD 17 组试验 · 二次回归建模</span></div>
+            <div class="fs"><em>4</em><b>BP 建模寻优</b><span>3-12-1 网络 · 加密网格全局寻优</span></div>
+            <div class="fs"><em>5</em><b>交叉验证</b><span>RSM 与 BP 的 R²/RMSE/MAE 对比</span></div>
+            <div class="fs"><em>6</em><b>品质评价</b><span>质构 · 色差 · 理化 · 感官评定</span></div>
+            <div class="fs"><em>7</em><b>功能评价</b><span>总酚 · 抗氧化 · eGI 估算</span></div>
+          </div>
+          <div class="entry"><a href="route.html">查看技术路线全图与关键问题应对&gt;&gt;</a></div>
+        </div>
+      </div>
+
+      <!-- 研究进展（摘要） -->
+      <div class="sec">
+        <div class="hd2">
+          <h2>研究进展 <em>Progress</em></h2>
+          <a class="more" href="progress.html">更多&gt;&gt;</a>
+        </div>
+        <div class="bd">
+          <p class="lead">项目 2026 年 8 月立项，M1–M12 六阶段推进；截至 2026 年 9 月，方案定稿与首轮实验已完成。</p>
+          <ul class="list">
+            <li><span class="tag">立项</span><span class="txt">项目立项，策划书定稿，确立“RSM + BP”双重优化技术框架与经费预算</span><span class="d">2026.08</span></li>
+            <li><span class="tag">方案</span><span class="txt">《详细流程》《麦糟干燥最佳方案（可执行版）》定稿，干燥主工艺确定为 65℃ 两段式脱水</span><span class="d">2026.09</span></li>
+            <li><span class="tag">实验</span><span class="txt">9.6–9.7 完成麦汁制备、麦糟干燥流程与湿糟速冻保存工艺可行性实验</span><span class="d">2026.09</span></li>
+            <li><span class="tag t2">进行中</span><span class="txt">M1–M2：文献调研、方案设计、预实验、原料与试剂采购</span><span class="d">M1–M2</span></li>
+            <li><span class="tag t2">计划</span><span class="txt">M5–M6 进入 Box-Behnken 响应面优化实验与最优配方验证</span><span class="d">M5–M6</span></li>
+          </ul>
+          <div class="entry"><a href="progress.html">查看阶段进度表与已归档文档&gt;&gt;</a></div>
+        </div>
+      </div>
+
+      <!-- 预期成果（摘要） -->
+      <div class="sec">
+        <div class="hd2">
+          <h2>预期成果与经费 <em>Achievements &amp; Budget</em></h2>
+          <a class="more" href="results.html">更多&gt;&gt;</a>
+        </div>
+        <div class="bd">
+          <p class="lead">目标产品：以麦糟粉替代部分面粉的粗粮饼干——高纤维、高蛋白、低糖的功能性烘焙食品。</p>
+          <ul class="list">
+            <li><span class="tag">01</span><span class="txt">结题研究报告 —— 覆盖原料、配方、工艺与功能评价全过程</span></li>
+            <li><span class="tag">02</span><span class="txt">最优配方与工艺参数 —— 经 RSM 与 BP 双模型交叉验证确认</span></li>
+            <li><span class="tag">03</span><span class="txt">BP 配方预测模型与配套 Python 脚本 —— 可在后续配方微调中复用</span></li>
+            <li><span class="tag">04</span><span class="txt">学术论文 1 篇投稿食品类中文核心期刊；条件允许时申请专利并参加大学生创新创业竞赛</span></li>
+          </ul>
+          <div class="entry"><a href="results.html">查看预期成果与经费预算明细（合计 6 800 元）&gt;&gt;</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------- 右：侧栏 -------- -->
+    <div class="col-side">
+
+      <div class="side-box">
+        <h3>快速导航</h3>
+        <div class="bd">
+          <ul class="list">
+            <li><a href="about.html">课题概况</a></li>
+            <li><a href="research.html">研究内容</a></li>
+            <li><a href="route.html">技术路线</a></li>
+            <li><a href="process.html">关键工艺</a></li>
+            <li><a href="progress.html">研究进展</a></li>
+            <li><a href="team.html">团队成员</a></li>
+            <li><a href="results.html">预期成果</a></li>
+            <li><a href="refs.html">参考资料</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <h3>课题信息</h3>
+        <div class="bd">
+          <div class="kv">
+            <div><b>课题名称</b><span>啤酒麦糟饼干的工艺优化及其品质特性与体外功能评价</span></div>
+            <div><b>课题类别</b><span>大学生创新创业训练计划</span></div>
+            <div><b>立项时间</b><span>2026 年 8 月</span></div>
+            <div><b>研究周期</b><span>12 个月（M1–M12）</span></div>
+            <div><b>经费预算</b><span>6 800 元</span></div>
+            <div><b>技术框架</b><span>响应面（RSM）＋ BP 神经网络双模型交叉验证</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <h3>图片资料</h3>
+        <div class="bd">
+          <div class="mini-pic">
+            <img src="assets/bsg-flour.jpg" alt="麦糟粉" loading="lazy" width="200" height="112" decoding="async">
+            <p>干燥粉碎后的麦糟粉（80 目）</p>
+          </div>
+          <div class="mini-pic" style="margin-bottom:0">
+            <img src="assets/bsg-cookie.jpg" alt="麦糟饼干成品" loading="lazy" width="200" height="112" decoding="async">
+            <p>目标产品：麦糟粗粮饼干</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <h3>联系方式</h3>
+        <div class="bd">
+          <div class="kv">
+            <div><b>联 系 人</b><span>刘铭哲（项目负责人）</span></div>
+            <div><b>联系方式</b><span>整理中，可通过课题组文档了解详情</span></div>
+            <div><b>办公地点</b><span>食品工艺实验室</span></div>
+          </div>
+          <p style="font-size:11.5px;color:#999;margin-top:7px;line-height:1.7">欢迎对本课题感兴趣的同学联系加入课题组。</p>
+        </div>
+      </div>
+
+      <div class="side-box">
+        <h3>访问统计</h3>
+        <div class="bd visit">
+          您是第 <b id="visitNum">00000000</b> 位访问者
+          <span class="tiny" id="visitNote">（本机计数，仅统计本浏览器打开次数）</span>
+          <span class="tiny" id="runDays">—</span>
+        </div>
+      </div>
+
+      <div class="side-box" style="margin-bottom:0">
+        <h3>友情链接</h3>
+        <div class="bd">
+          <select class="sel" id="friendSel" aria-label="友情链接">
+            <option value="">— 请选择 —</option>
+            <option value="about.html">课题概况</option>
+            <option value="research.html">研究内容</option>
+            <option value="process.html">关键工艺</option>
+            <option value="progress.html">研究进展</option>
+            <option value="refs.html">参考资料</option>
+          </select>
+          <div style="text-align:right;margin-top:6px">
+            <button type="button" id="friendGo" style="height:24px;padding:0 10px;border:1px solid #c9c9c9;background:#eeece3;font:12px/1 '宋体',serif;cursor:pointer">前往</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==================== 页脚 ==================== -->
+  <div class="ft">
+    <div class="fl">
+      <b>友情链接：</b>
+      <select id="ftSel" aria-label="友情链接">
+        <option value="">— 课题组内部栏目 —</option>
+        <option value="about.html">课题概况</option>
+        <option value="research.html">研究内容</option>
+        <option value="route.html">技术路线</option>
+        <option value="process.html">关键工艺</option>
+        <option value="progress.html">研究进展</option>
+        <option value="team.html">团队成员</option>
+        <option value="results.html">预期成果</option>
+        <option value="refs.html">参考资料</option>
+      </select>
+      <button type="button" id="ftGo">前往</button>
+      <span style="color:#c9c9c9">|</span>
+      <a href="sitemap.html">网站地图</a>
+      <span style="color:#c9c9c9">|</span>
+      <a href="#" id="printBtn">打印本页</a>
+      <span style="color:#c9c9c9">|</span>
+      <a href="team.html">联系我们</a>
+      <span style="color:#c9c9c9">|</span>
+      <a href="#" id="toTop">返回顶部</a>
+    </div>
+
+    <div class="cp">
+      © 2026 麦糟高值化课题组　版权所有　未经许可不得转载<br>
+      课题方向：循环经济 · 反食品浪费 · 功能食品　<span>|</span>　页面更新：2026-09-25
+      <br>
+      <span>本站数据均来源于课题组策划书、详细流程与实验方案等文档；响应面与 BP 神经网络相关图表数据由 Python 脚本生成，用于方法学演示，最终以真实实验数据为准。</span>
+    </div>
+  </div>
+
+</div>
+<script src="search-index.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
