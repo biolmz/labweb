@@ -1,0 +1,407 @@
+@charset "utf-8";
+/* ============================================================
+   麦糟高值化课题组 · 课题网站 共用样式表
+   版式：传统高校课题组主页（定宽 1000px / 表格化 / 宋体正文）
+   离线可用：无任何外部依赖，字体使用系统字体栈
+   结构：style.css 共用版式 ／ main.js 共用脚本 ／ search-index.js 站内索引
+   ============================================================ */
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --ink:#333333;      /* 正文 */
+  --ink2:#666666;     /* 次要 */
+  --ink3:#999999;     /* 弱化 */
+  --line:#c9c9c9;     /* 主边框 */
+  --line2:#e2e2e2;    /* 次边框 */
+  --line3:#f0efe9;    /* 极浅底 */
+  --grn:#1f5c3d;      /* 主色：墨绿 */
+  --grn2:#2c7a52;     /* 主色浅 */
+  --grn3:#e9f1eb;     /* 主色极浅底 */
+  --gold:#b5811f;     /* 强调：赭金 */
+  --gold2:#f6edd6;    /* 强调浅底 */
+  --bg:#f2f2ed;       /* 页面底色 */
+}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font:13px/1.9 "宋体",SimSun,"Songti SC",serif;
+  -webkit-text-size-adjust:100%;
+}
+h1,h2,h3,h4,.hei{font-family:"黑体",SimHei,"Microsoft YaHei",sans-serif}
+a{color:#14573a;text-decoration:none}
+a:hover{color:var(--gold);text-decoration:underline}
+img{border:0;display:block}
+table{border-collapse:collapse}
+ol,ul{list-style:none}
+mark.hit{background:#ffe9a8;color:inherit;padding:0 1px}
+code{font-family:Consolas,"Courier New",monospace;font-size:11.5px;
+  background:#f4f3ec;border:1px solid var(--line2);padding:0 4px;
+  color:#14573a;word-break:break-all}
+
+/* ---------------- 版心 ---------------- */
+.page{width:1000px;margin:0 auto;background:#ffffff;
+  box-shadow:0 0 0 1px var(--line2);}
+
+/* ---------------- 页头 ---------------- */
+.hd{background:var(--grn);color:#fff;padding:14px 16px;
+  display:flex;align-items:center;gap:14px}
+.logo{
+  flex:0 0 62px;height:62px;border:1px solid #7fae93;background:#17492f;
+  display:flex;align-items:center;justify-content:center;
+  font:bold 17px/1 Georgia,"Times New Roman",serif;letter-spacing:.06em;color:#e8d9a8;
+}
+.hd-t{flex:1;min-width:0}
+.hd-t h1{font-size:25px;font-weight:normal;letter-spacing:.14em;line-height:1.35}
+.hd-t p{font:11px/1.6 Georgia,"Times New Roman",serif;color:#bcd8c6;
+  letter-spacing:.04em;margin-top:2px}
+.hd-r{flex:0 0 250px;text-align:right;position:relative}
+.search{display:flex;justify-content:flex-end;gap:0}
+.search input{
+  width:158px;height:26px;padding:0 6px;border:1px solid #7fae93;border-right:0;
+  background:#fffdf6;font:12px/26px "宋体",SimSun,serif;color:var(--ink);outline:none;
+}
+.search input:focus{background:#fff;border-color:var(--gold)}
+.search button{
+  height:26px;padding:0 10px;border:1px solid #7fae93;cursor:pointer;
+  background:#17492f;color:#e8d9a8;font:12px/1 "宋体",SimSun,serif;letter-spacing:.08em;
+}
+.search button:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.hd-r .slogan{font-size:11px;color:#bcd8c6;margin-top:7px;line-height:1.6}
+/* 页头右上「内部管理系统」入口 */
+.hd-r .toplink{text-align:right;margin-bottom:7px;line-height:1}
+.hd-r .toplink a{
+  display:inline-block;padding:2px 9px;border:1px solid #7fae93;
+  color:#e8d9a8;font-size:11.5px;letter-spacing:.04em;
+}
+.hd-r .toplink a:hover{background:var(--gold);border-color:var(--gold);
+  color:#fff;text-decoration:none}
+.hd-r .toplink a:after{content:" ↗"}
+
+/* 站内检索结果浮层（多页站：跨栏目命中 + 本页高亮） */
+.srch-pop{
+  display:none;position:absolute;right:0;top:31px;z-index:60;
+  width:340px;max-width:calc(100vw - 36px);
+  background:#fffdf6;border:1px solid var(--grn);border-top:3px solid var(--gold);
+  padding:8px 11px 9px;text-align:left;
+  font:12px/1.75 "宋体",SimSun,serif;color:var(--ink);
+}
+.srch-pop.on{display:block}
+.srch-pop .n{color:var(--gold);font-weight:bold;font-family:Georgia,serif}
+.srch-pop ul{margin:5px 0 6px;border-top:1px dotted var(--line2)}
+.srch-pop li{position:relative;padding:3px 0 3px 11px;border-bottom:1px dotted var(--line2)}
+.srch-pop li:before{content:"";position:absolute;left:2px;top:12px;
+  width:3px;height:3px;background:var(--gold)}
+.srch-pop li.grey{color:var(--ink3)}
+.srch-pop .cls{color:var(--ink2);text-decoration:underline;font-size:11.5px}
+
+/* ---------------- 导航 ---------------- */
+.nav{background:var(--grn2);border-bottom:3px solid var(--gold)}
+.nav ul{display:flex;flex-wrap:wrap}
+/* 栏目数变少后让各项均分整条导航，避免右侧留一大段空档 */
+.nav li{flex:1 1 auto;min-width:0}
+.nav li:last-child a{border-right:0}
+.nav a{
+  display:block;padding:0 21px;height:38px;line-height:38px;color:#ffffff;
+  font-size:14px;letter-spacing:.09em;border-right:1px solid #4c9570;
+  text-align:center;
+}
+.nav a:hover{background:#f4f2e8;color:var(--grn);text-decoration:none}
+.nav li.on a{background:#f4f2e8;color:var(--grn);font-weight:bold}
+
+/* ---------------- 面包屑 ---------------- */
+.crumb{
+  padding:9px 16px;font-size:12px;color:var(--ink2);
+  background:#faf9f4;border-bottom:1px solid var(--line2);
+}
+.crumb span{color:var(--ink3)}
+
+/* ---------------- 首屏 ---------------- */
+.hero{display:flex;gap:14px;padding:14px 16px;border-bottom:1px solid var(--line2);
+  align-items:flex-start}
+.hero-l{flex:1 1 auto;min-width:0}
+.figure{border:1px solid var(--line);background:#000;position:relative;overflow:hidden}
+.figure img{width:100%;height:296px;object-fit:cover;display:block}
+.figure .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:6px 9px;
+  background:rgba(0,0,0,.58);color:#fff;font-size:12px;line-height:1.6;
+}
+.thumbs{display:flex;gap:6px;margin-top:6px}
+.thumbs button{
+  flex:1 1 0;min-width:0;padding:2px;background:#fff;border:1px solid var(--line);
+  cursor:pointer;line-height:0;
+}
+.thumbs button img{width:100%;height:62px;object-fit:cover}
+.thumbs button:hover{border-color:var(--gold)}
+.thumbs button.on{border-color:var(--grn);background:var(--grn3);padding:2px}
+.thumbs button.on img{outline:1px solid var(--grn);outline-offset:0}
+
+/* 通知公告栏（类名用 nt-bar，避免与表格里的占比条 .bar 撞车） */
+.notice{flex:0 0 360px;width:360px;min-width:0;display:flex;flex-direction:column}
+.nt-bar{
+  border:1px solid var(--line);border-bottom:0;background:var(--grn3);
+  display:flex;align-items:center;border-left:4px solid var(--grn);
+}
+.nt-bar h2{font-size:14px;font-weight:normal;letter-spacing:.1em;padding:7px 10px;flex:1;min-width:0;
+  color:var(--grn);font-family:"黑体",SimHei,sans-serif}
+.nt-bar .more{font-size:11px;padding-right:9px;color:var(--ink2);flex:0 0 auto;white-space:nowrap}
+.ticks{
+  border:1px solid var(--line);border-bottom:0;background:#fdfcf7;
+  display:flex;align-items:center;height:30px;overflow:hidden;
+}
+.ticks b{
+  flex:0 0 auto;font-weight:normal;font-size:11px;color:#fff;background:var(--gold);
+  padding:0 8px;height:30px;line-height:30px;letter-spacing:.1em;
+}
+/* 走马灯：绝对定位 + 只用 transform 位移，确保对布局零影响（不能用 padding-left:100%） */
+.ticks .vp{flex:1 1 auto;min-width:0;height:30px;position:relative;overflow:hidden}
+.ticks .vp p{
+  position:absolute;top:0;left:100%;white-space:nowrap;
+  font-size:12px;line-height:30px;color:var(--grn);
+  animation:tick 34s linear infinite;
+}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.ticks:hover .vp p{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){
+  .ticks .vp p{animation:none;left:8px;transform:none;position:static;
+    overflow:hidden;text-overflow:ellipsis;max-width:100%}
+}
+.notice .body{border:1px solid var(--line);flex:1;padding:6px 10px 8px;min-width:0}
+.notice .list a{font-size:12.5px}
+.notice .list .tag{padding:0 3px}
+
+/* 列表（点线分隔，传统写法） */
+.list{min-width:0}
+.list li{
+  display:flex;align-items:baseline;gap:6px;min-width:0;
+  padding:5px 0 5px 12px;border-bottom:1px dotted var(--line);
+  position:relative;
+}
+.list li:last-child{border-bottom:0}
+.list li:before{
+  content:"";position:absolute;left:2px;top:13px;
+  width:4px;height:4px;background:var(--gold);
+}
+.list a{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.list .d{flex:0 0 auto;font-size:11px;color:var(--ink3);white-space:nowrap;
+  font-family:Georgia,"Times New Roman",serif;letter-spacing:.02em}
+.list .tag{flex:0 0 auto;font-size:10px;color:var(--grn);border:1px solid var(--grn2);
+  padding:0 4px;line-height:15px;letter-spacing:.04em;white-space:nowrap}
+.list .tag.t2{color:var(--gold);border-color:var(--gold)}
+/* 纯文本列表项（无链接）：让文字占满整行并允许换行 */
+.list li > span.txt{flex:1 1 auto;min-width:0}
+
+/* ---------------- 主体两栏 ---------------- */
+.body-wrap{display:flex;gap:14px;padding:14px 16px 18px}
+.col-main{flex:1 1 auto;min-width:0}
+.col-side{flex:0 0 224px;width:224px;min-width:0}
+
+/* 栏目块（带标题条） */
+.sec{margin-bottom:18px;border:1px solid var(--line)}
+.sec:last-child{margin-bottom:0}
+.sec > .hd2{
+  background:var(--grn3);border-bottom:1px solid var(--line);
+  border-left:4px solid var(--grn);display:flex;align-items:center;
+}
+.sec > .hd2 h2{
+  font-size:14px;font-weight:normal;letter-spacing:.1em;color:var(--grn);
+  padding:7px 10px;flex:1;
+}
+.sec > .hd2 h2 em{font-style:normal;color:var(--ink3);font-size:11px;margin-left:8px;
+  letter-spacing:.02em;font-family:Georgia,serif}
+.sec > .hd2 .more{font-size:11px;padding-right:9px;color:var(--ink2)}
+.sec > .bd{padding:11px 13px 13px}
+
+/* 内容面板（内页正文块，无标题条） */
+.panel{border:1px solid var(--line);background:#fff;
+  padding:13px 15px 15px;margin-bottom:18px}
+.panel:last-child{margin-bottom:0}
+.panel > p{margin-bottom:9px;text-align:justify}
+.panel > p:last-child{margin-bottom:0}
+
+/* 小节标题（一、二、三…） */
+.sub{
+  font-size:13.5px;font-weight:normal;letter-spacing:.06em;color:var(--grn);
+  background:var(--grn3);border-left:4px solid var(--grn);
+  padding:5px 10px;margin:0 0 10px;
+}
+.panel > .sub:not(:first-child){margin-top:16px}
+.panel > .lead + .sub{margin-top:12px}
+
+/* 「更多>>」底部入口 */
+.entry{margin-top:10px;padding-top:8px;border-top:1px dotted var(--line2);
+  text-align:right;font-size:12px}
+.entry a{letter-spacing:.04em}
+
+.sec p, .panel p{margin-bottom:9px;text-align:justify}
+.sec p:last-child, .panel p:last-child{margin-bottom:0}
+.sec .lead, .panel .lead{color:var(--ink2);font-size:12px;border-left:3px solid var(--gold2);
+  padding-left:8px;margin-bottom:11px}
+strong{font-weight:bold}
+.hl{color:var(--gold);font-weight:bold}
+.note{font-size:11.5px;color:var(--ink3);margin-top:6px;text-align:justify}
+
+/* 表格 */
+.tb{width:100%;font-size:12.5px;background:#fff}
+.tb th,.tb td{border:1px solid var(--line2);padding:6px 8px;vertical-align:top;line-height:1.7}
+.tb thead th{
+  background:#f4f3ec;font-weight:normal;color:var(--grn);letter-spacing:.06em;
+  font-family:"黑体",SimHei,sans-serif;font-size:12.5px;text-align:left;
+}
+.tb td.c,.tb th.c{text-align:center}
+.tb td.n,.tb th.n{text-align:right;font-family:Georgia,"Times New Roman",serif}
+.tb tbody tr:nth-child(even) td{background:#fcfcfa}
+.tb .no{width:48px;text-align:center;color:var(--gold);font-family:Georgia,serif}
+.tb .step{width:96px;color:var(--grn)}
+.tb .st{width:86px;text-align:center;font-size:11.5px}
+.tb tr.sum td{background:var(--grn3)!important;font-weight:bold;color:var(--grn)}
+.tb-wrap{overflow-x:auto;margin:0 0 2px}
+.tb-wrap + .note{margin-top:6px}
+
+/* 区间条 / 占比条 */
+.bar{display:block;height:9px;background:#eceae2;border:1px solid var(--line2);
+  position:relative;min-width:64px}
+.bar i{display:block;height:100%;background:var(--grn2)}
+.bar i.range{position:absolute;top:0;height:100%;background:var(--grn2)}
+
+/* 状态标记 */
+.st-done{color:var(--grn);border:1px solid var(--grn2);padding:0 4px;font-size:11px}
+.st-doing{color:var(--gold);border:1px solid var(--gold);padding:0 4px;font-size:11px}
+.st-plan{color:var(--ink3);border:1px solid var(--line);padding:0 4px;font-size:11px}
+
+/* 步骤流程（表格化横排） */
+.flow{display:flex;gap:5px;margin-bottom:11px;flex-wrap:wrap}
+.flow .fs{
+  flex:1 1 96px;border:1px solid var(--line2);background:#fcfcfa;
+  padding:7px 8px;font-size:12px;position:relative;
+}
+.flow .fs b{display:block;color:var(--grn);font-size:12.5px;margin-bottom:2px}
+.flow .fs span{color:var(--ink2);font-size:11.5px;line-height:1.6}
+.flow .fs em{position:absolute;right:5px;top:5px;font-style:normal;
+  font-size:11px;color:var(--gold);font-family:Georgia,serif}
+
+/* 引用/依据框 */
+.quote{border:1px solid var(--line2);background:#fdfcf6;padding:8px 10px;
+  font-size:12px;color:var(--ink2);margin-bottom:9px;border-left:3px solid var(--gold)}
+.quote b{color:var(--ink)}
+
+/* 文献列表 */
+.refs li{font-size:12px;color:var(--ink2);padding:4px 0 4px 26px;
+  border-bottom:1px dotted var(--line);position:relative;line-height:1.75}
+.refs li:last-child{border-bottom:0}
+.refs li em{position:absolute;left:0;top:4px;width:20px;text-align:right;
+  font-style:normal;color:var(--ink3);font-family:Georgia,serif;font-size:11px}
+.refs i{font-style:italic}
+.refs .doi{font-family:Georgia,serif;font-size:11px;color:var(--ink3);
+  display:block;word-break:break-all}
+
+/* ---------------- 侧栏 ---------------- */
+.side-box{border:1px solid var(--line);margin-bottom:14px}
+.side-box > h3{
+  font-size:13px;font-weight:normal;letter-spacing:.1em;color:var(--grn);
+  background:var(--grn3);border-bottom:1px solid var(--line);
+  border-left:4px solid var(--grn);padding:6px 9px;
+  display:flex;align-items:center;gap:6px;
+}
+.side-box > h3 .more{margin-left:auto;font-size:11px;font-weight:normal;
+  letter-spacing:.02em;color:var(--ink2);white-space:nowrap}
+.side-box > h3 .more:hover{color:var(--gold)}
+.side-box > .bd{padding:9px 10px}
+.side-box .list li{font-size:12.5px;padding:4px 0 4px 12px}
+.side-box .list li:before{top:11px}
+/* 键值表（课题速览） */
+.kv{font-size:12px;line-height:1.85}
+.kv div{display:flex;gap:6px;border-bottom:1px dotted var(--line);padding:3px 0}
+.kv div:last-child{border-bottom:0}
+.kv b{flex:0 0 62px;font-weight:normal;color:var(--ink2)}
+.kv span{flex:1;min-width:0;word-break:break-word}
+
+/* ---------------- 页脚 ---------------- */
+.ft{border-top:3px solid var(--grn);background:#f7f6f0;padding:13px 16px 15px;
+  font-size:12px;color:var(--ink2);text-align:center;line-height:2}
+.ft .fl{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:8px;
+  flex-wrap:wrap}
+.ft .cp{border-top:1px dotted var(--line);padding-top:8px;margin-top:2px}
+.ft .cp span{margin:0 7px;color:var(--ink3)}
+
+/* ============================================================
+   政务风「内容排版」—— 只作用在正文内容区（body.gov）
+   要点：政府风体现在正文的字体／缩进／层次／表格上，
+   不靠把页头、导航刷成红头。外壳（页头、导航、面包屑、侧栏、页脚）
+   与全站其它页面完全一致，去掉 body 的 gov 类即回到普通正文排版。
+   —— 公文正文要素：仿宋三号、行距近两倍、首行缩进两字、
+      层次用「一、」黑体、表格细线无装饰、链接深蓝、通篇不用彩色。
+   ============================================================ */
+
+/* —— 页题：公文式居中标题（黑体，黑色，细线收尾，不用彩色） —— */
+.gov-hd{padding:22px 16px 12px;text-align:center}
+.gov-hd h1{display:inline-block;padding:0 6px 11px;border-bottom:1px solid #333333;
+  font:normal 24px/1.5 "方正小标宋简体","方正小标宋_GBK","黑体",SimHei,sans-serif;
+  color:#111111;letter-spacing:.2em}
+.gov-hd p{margin-top:11px;font:12px/1.8 "宋体",SimSun,serif;color:#777777}
+.gov-hd p span{margin:0 8px;color:#c0c0c0}
+
+/* —— 正文：仿宋三号 + 宽行距 + 首行缩进两字 —— */
+.gov .panel{border:0;background:none;padding:16px 24px 26px;margin-bottom:0;
+  font:16px/1.95 "仿宋","FangSong","仿宋_GB2312","宋体",SimSun,serif;color:#111111}
+.gov .panel p{text-indent:2em;text-align:justify;margin-bottom:10px}
+.gov .panel .lead{font-size:16px;color:#111111;text-indent:2em;
+  border-left:0;border-bottom:0;padding:0;margin-bottom:12px}
+
+/* —— 层次标题：黑体、黑色、无底色无竖条（公文用「一、」「（一）」分层） —— */
+/* 选择器写 .panel > .sub：要压过上面 `.panel > .sub:not(:first-child){margin-top:16px}`
+   那条同权重规则（靠源码顺序取胜），否则第 2 个小节标题上间距会缩水。 */
+.gov .panel > .sub{background:none;border:0;padding:0;margin:24px 0 10px;text-indent:0;
+  font:bold 17px/1.8 "黑体",SimHei,sans-serif;color:#111111;letter-spacing:.04em}
+.gov .sub:before{content:none}
+
+/* —— 表格：朴素细线 + 居中表头，去掉斑马纹与绿／金色 —— */
+.gov .tb{border:1px solid #999999;background:#ffffff;font-size:14px}
+.gov .tb th,.gov .tb td{border:1px solid #999999;padding:7px 10px;line-height:1.85}
+.gov .tb thead th{background:#f2f2f2;color:#111111;font-weight:bold;
+  font-family:"黑体",SimHei,sans-serif;font-size:14px;text-align:center;
+  letter-spacing:.03em}
+.gov .tb tbody tr:nth-child(even) td{background:#ffffff}
+.gov .tb td:first-child{text-align:center}
+/* —— 链接与强调：深蓝，不用彩色 —— */
+.gov a{color:#1a3f8f}
+.gov a:hover{color:#a5241e}
+.gov .hl{color:#111111;font-weight:bold}
+.gov code{background:#f5f5f5;border-color:#dddddd;color:#333333}
+.gov .note{color:#666666;font:13px/1.9 "仿宋","FangSong","宋体",SimSun,serif;
+  text-indent:2em}
+
+/* ---------------- 响应式（传统定宽站的降级处理） ---------------- */
+@media (max-width:1040px){
+  .page{width:auto;margin:0 10px}
+  .hero{flex-direction:column;align-items:stretch}
+  .notice{flex:0 0 auto;width:auto;max-width:none}
+  .body-wrap{flex-direction:column}
+  .col-main{flex:0 0 auto}
+  .col-side{flex:0 0 auto;width:auto;display:flex;flex-wrap:wrap;gap:12px}
+  .col-side .side-box{flex:1 1 260px;margin-bottom:0}
+}
+@media (max-width:720px){
+  .hd{flex-wrap:wrap}
+  .hd-r{flex:1 1 100%;text-align:left}
+  .search{justify-content:flex-start}
+  .srch-pop{right:auto;left:0}
+  .hd-t h1{font-size:19px;letter-spacing:.08em}
+  .gov-hd{padding:16px 12px 8px}
+  .gov-hd h1{font-size:19px;letter-spacing:.1em}
+  .gov .panel{padding:12px 14px 20px;font-size:15px;line-height:1.9}
+  .gov .panel > .sub{font-size:16px;margin-top:18px}
+  .nav a{padding:0 11px;height:34px;line-height:34px;font-size:13px;letter-spacing:.04em}
+  .figure img{height:200px}
+  .tb,.gov .tb{font-size:12px}
+  .tb th,.tb td{padding:5px 6px}
+  .flow .fs{flex:1 1 44%}
+}
+@media print{
+  body{background:#fff}
+  .page{width:auto;box-shadow:none}
+  .nav,.search,.srch-pop,.ticks,.thumbs,.ft .fl{display:none}
+  .sec,.panel,.tb,.side-box{break-inside:avoid}
+  .crumb{background:#fff;border-bottom:1px solid #999}
+}
