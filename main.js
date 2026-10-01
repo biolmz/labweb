@@ -17,17 +17,55 @@
 
   /* ================= 1. 焦点图切换（仅首页有） ================= */
   (function () {
-    var big = $('bigPic'), cap = $('bigCap');
+    var big = $('bigPic'), cap = $('bigCap'), bigSrc = $('bigSource');
     var btns = all('#thumbs button');
     if (!big || !btns.length) return;
+
+    /* WebP 支持检测：与 <picture> 的兜底逻辑保持一致 */
+    var useWebp = (function () {
+      try {
+        var c = document.createElement('canvas');
+        return c.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+      } catch (e) { return false; }
+    })();
+
+    /* 取某张按钮对应的大图地址；兼容旧版只写 data-src 的写法 */
+    function bigURL(b) {
+      var webp = b.getAttribute('data-webp'), jpg = b.getAttribute('data-jpg');
+      if (webp && jpg) return useWebp ? webp : jpg;
+      return b.getAttribute('data-src') || '';
+    }
+
+    function show(b) {
+      var url = bigURL(b);
+      if (url) {
+        /* 支持 WebP 时同时改 <source> 与 <img>，两边指向同一地址，不会重复下载 */
+        if (bigSrc) {
+          if (useWebp) bigSrc.setAttribute('srcset', url);
+          else bigSrc.removeAttribute('srcset');
+        }
+        big.src = url;
+      }
+      big.alt = b.getAttribute('data-alt') || '';
+      if (cap) cap.textContent = b.getAttribute('data-cap') || '';
+    }
+
     btns.forEach(function (b) {
       b.addEventListener('click', function () {
         btns.forEach(function (x) { x.classList.remove('on'); });
         b.classList.add('on');
-        if (b.dataset.src) big.src = b.dataset.src;
-        big.alt = b.dataset.alt || '';
-        if (cap) cap.textContent = b.dataset.cap || '';
+        show(b);
       });
+      /* 悬停／聚焦时预热大图，点击后立即可见，减少等待感 */
+      function warm() {
+        var url = bigURL(b);
+        if (!url || url === big.src) return;
+        var im = new Image();
+        im.decoding = 'async';
+        im.src = url;
+      }
+      b.addEventListener('mouseenter', warm);
+      b.addEventListener('focus', warm);
     });
   })();
 

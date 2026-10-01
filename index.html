@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>首页 — 麦糟高值化课题组</title>
 <meta name="description" content="麦糟高值化课题组：啤酒麦糟饼干的工艺优化及其品质特性与体外功能评价。">
+<!-- 首屏焦点图：优先加载优化后的 WebP，缩短首屏图片出现时间 -->
+<link rel="preload" as="image" href="assets/optim/hero-bsg-lg.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -47,26 +49,49 @@
   <div class="hero">
     <div class="hero-l">
       <div class="figure">
-        <img id="bigPic" src="assets/hero-bsg.jpg" alt="啤酒酿造副产物麦糟原料特写" width="640" height="296" decoding="async">
+        <picture>
+          <source id="bigSource" srcset="assets/optim/hero-bsg-lg.webp" type="image/webp">
+          <img id="bigPic" src="assets/optim/hero-bsg-lg.jpg" alt="啤酒酿造副产物麦糟原料特写" width="640" height="296" decoding="async" fetchpriority="high">
+        </picture>
         <span class="cap" id="bigCap">啤酒酿造副产物麦糟 —— 每年约 700 万吨的“被低估原料”</span>
       </div>
       <div class="thumbs" id="thumbs">
-        <button type="button" class="on" data-src="assets/hero-bsg.jpg"
+        <button type="button" class="on"
+          data-webp="assets/optim/hero-bsg-lg.webp"
+          data-jpg="assets/optim/hero-bsg-lg.jpg"
           data-cap="啤酒酿造副产物麦糟 —— 每年约 700 万吨的“被低估原料”"
           data-alt="啤酒酿造副产物麦糟原料特写">
-          <img src="assets/hero-bsg.jpg" alt="麦糟原料" width="150" height="62" decoding="async"></button>
-        <button type="button" data-src="assets/bsg-flour.jpg"
+          <picture>
+            <source srcset="assets/optim/hero-bsg-sm.webp" type="image/webp">
+            <img src="assets/optim/hero-bsg-sm.jpg" alt="麦糟原料" width="150" height="62" decoding="async">
+          </picture></button>
+        <button type="button"
+          data-webp="assets/optim/bsg-flour-lg.webp"
+          data-jpg="assets/optim/bsg-flour-lg.jpg"
           data-cap="干燥、粉碎、过 80 目筛后的食品级麦糟粉 —— 核心中间产物"
           data-alt="干燥粉碎后的麦糟粉特写">
-          <img src="assets/bsg-flour.jpg" alt="麦糟粉" width="150" height="62" decoding="async"></button>
-        <button type="button" data-src="assets/bsg-cookie.jpg"
+          <picture>
+            <source srcset="assets/optim/bsg-flour-sm.webp" type="image/webp">
+            <img src="assets/optim/bsg-flour-sm.jpg" alt="麦糟粉" width="150" height="62" decoding="async">
+          </picture></button>
+        <button type="button"
+          data-webp="assets/optim/bsg-cookie-lg.webp"
+          data-jpg="assets/optim/bsg-cookie-lg.jpg"
           data-cap="目标产品：以麦糟粉替代部分面粉的粗粮饼干 —— 高纤维、高蛋白、低糖的功能性烘焙食品"
           data-alt="添加麦糟的粗粮饼干成品">
-          <img src="assets/bsg-cookie.jpg" alt="麦糟饼干" width="150" height="62" decoding="async"></button>
-        <button type="button" data-src="assets/drying-oven.jpg"
+          <picture>
+            <source srcset="assets/optim/bsg-cookie-sm.webp" type="image/webp">
+            <img src="assets/optim/bsg-cookie-sm.jpg" alt="麦糟饼干" width="150" height="62" decoding="async">
+          </picture></button>
+        <button type="button"
+          data-webp="assets/optim/drying-oven-lg.webp"
+          data-jpg="assets/optim/drying-oven-lg.jpg"
           data-cap="电热鼓风干燥箱 · 65℃ 强制对流干燥，料层 ≤1.5 cm，托盘间留风道"
           data-alt="电热鼓风干燥箱中摊铺的麦糟颗粒">
-          <img src="assets/drying-oven.jpg" alt="鼓风干燥箱" width="150" height="62" decoding="async"></button>
+          <picture>
+            <source srcset="assets/optim/drying-oven-sm.webp" type="image/webp">
+            <img src="assets/optim/drying-oven-sm.jpg" alt="鼓风干燥箱" width="150" height="62" decoding="async">
+          </picture></button>
       </div>
     </div>
 
@@ -84,7 +109,6 @@
           <li><span class="tag">方案</span><a href="progress.html">《单因素实验详细方案》完成</a><span class="d">09-11</span></li>
           <li><span class="tag">动态</span><a href="progress.html">首轮工艺可行性实验完成</a><span class="d">09-07</span></li>
           <li><span class="tag">工艺</span><a href="progress.html">麦糟干燥最佳方案定稿</a><span class="d">09-03</span></li>
-          <
         </ul>
       </div>
     </div>

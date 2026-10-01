@@ -33,6 +33,8 @@ h1,h2,h3,h4,.hei{font-family:"黑体",SimHei,"Microsoft YaHei",sans-serif}
 a{color:#14573a;text-decoration:none}
 a:hover{color:var(--gold);text-decoration:underline}
 img{border:0;display:block}
+/* <picture> 作为块级容器，避免行内元素在图片下方多出一行空隙 */
+picture{display:block}
 table{border-collapse:collapse}
 ol,ul{list-style:none}
 mark.hit{background:#ffe9a8;color:inherit;padding:0 1px}
